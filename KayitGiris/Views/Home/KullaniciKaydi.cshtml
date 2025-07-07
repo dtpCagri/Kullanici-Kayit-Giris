@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "KullaniciKaydi";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@model KayitGiris.Models.Kullanici
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var message = '@TempData["KayitBilgisi"]';
+            if (message && message !== "undefined") {
+                alert(message);
+            }
+        });
+    </script>
+}
+
+<!-- Kullanıcı Kaydı -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title"> Kullanıcı Kaydı </h3>
+    </div>
+
+    <div class="card-body align-items-center w-50">
+        <form asp-action="Kayit" method="post">
+            <div class="mb-3">
+                <label asp-for="TC" class="form-label">TC Kimlik No</label>
+                <input asp-for="TC" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Sifre" class="form-label">Şifre</label>
+                <input asp-for="Sifre" type="password" class="form-control" required />
+            </div>
+
+            <input type="submit" value="Kayıt Ol" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
